@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Navigator</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="css/map.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/weights.js" defer></script>
+  <script src="js/pathfinding.js" defer></script>
+  <script src="js/map.js" defer></script>
+  <script src="js/lines.js" defer></script>
+  <script src="js/directions.js" defer></script>
+  <script src="js/navigation.js" defer></script>
+  <script src="js/qr.js" defer></script>
+
+</head>
+
+<body class="bg-gray-200">
+
+<header class="bg-blue-800 text-white py-4 shadow-md text-center text-xl font-bold">
+  Smart Campus Navigator – AITM
+</header>
+
+<main class="flex flex-col items-center px-4 py-8">
+
+  <!-- Floor Selector -->
+  <div class="mb-4">
+    <label class="text-sm font-medium">Select Floor:</label>
+    <select id="floor" class="p-2 border rounded" onchange="switchFloor()">
+      <option value="0">Base Floor</option>
+      <option value="1">Ground Floor</option>
+      <option value="2">First Floor</option>
+      <option value="3">Second Floor</option>
+      <option value="4">Fourth Floor</option>
+    </select>
+  </div>
+
+  <!-- Map -->
+  <div id="map" class="relative bg-white border w-[420px] h-[420px] rounded shadow-md overflow-hidden">
+    <!-- nodes + user + lines will render via JS -->
+  </div>
+
+  <!-- Controls -->
+  <div class="mt-6 w-full max-w-md flex flex-col items-center space-y-4">
+
+    <div class="flex justify-between w-full">
+      <label class="w-1/2">
+        <span class="text-sm">From:</span>
+        <select id="start" class="mt-1 p-2 border rounded w-full"></select>
+      </label>
+
+      <label class="w-1/2">
+        <span class="text-sm">To:</span>
+        <select id="end" class="mt-1 p-2 border rounded w-full"></select>
+      </label>
+    </div>
+
+    <button onclick="navigate()"
+            class="bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      Navigate
+    </button>
+
+    <p id="path" class="text-center text-lg font-medium"></p>
+    <div id="directions" class="mt-4 text-gray-900 text-md font-medium"></div>
+
+
+  </div>
+
+</main>
+
+</body>
+</html>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof renderMap === "function") {
+    renderMap();
+    populateDropdowns();
+  } else {
+    console.error("renderMap not found!");
+  }
+});
+</script>

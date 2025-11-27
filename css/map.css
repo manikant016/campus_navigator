@@ -1,0 +1,49 @@
+.node {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background-color: red;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.label {
+  position: absolute;
+  font-size: 10px;
+  color: black;
+  white-space: nowrap;
+}
+
+.user {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: blue;
+  border-radius: 50%;
+  border: 2px solid white;
+  transition: top 0.7s linear, left 0.7s linear;
+}
+
+.line {
+  position: absolute;
+  background-color: #aaa;
+  height: 2px;
+}
+
+
+.route-line {
+  position: absolute;
+  background-color: blue;
+  height: 3px;
+  border-radius: 4px;
+}
+
+/*#map {
+  background-image: url("../assets/college-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+*/
+
+
